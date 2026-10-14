@@ -16,7 +16,7 @@ def home(request):
         "total_employees": len(EMPLOYEES),
         "page_title": "Home",
     }
-    return render(request, "employees/home.html", context)
+    return render(request, "employees/index.html", context)
 
 def employee_list(request):
     context = {
@@ -30,6 +30,7 @@ def employee_detail(request, pk):
     employee = next((e for e in EMPLOYEES if e["id"] == pk), None)
     if not employee:
         return HttpResponse("Employee not found", status=404)
+
     context = {
         "employee": employee,
         "page_title": f"{employee['first_name']} {employee['last_name']}",
