@@ -27,3 +27,56 @@ main {
 .btn {
     border-radius: 6px;
 }
+
+/* Module 4: Dynamic Employee Dashboard */
+
+.info-banner {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: #eef4ff;
+    border-left: 4px solid #0d6efd;
+    border-radius: 8px;
+}
+
+#status-message {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+#employee-list[hidden] {
+    display: none !important;
+}
+
+.employee-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    overflow-wrap: anywhere;
+}
+
+.employee-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+#form-message:empty {
+    display: none;
+}
+
+#employee-form input:focus,
+#employee-form select:focus {
+    outline: 2px solid #86b7fe;
+    outline-offset: 1px;
+}
+
+@media (max-width: 576px) {
+    .info-banner,
+    section.card {
+        padding: 1rem !important;
+    }
+
+    #toggle-employees-btn {
+        width: 100%;
+    }
+}
+.info-banner.info-hidden > :not(#hide-btn) {
+    display: none;
+}

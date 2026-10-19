@@ -10,13 +10,15 @@ EMPLOYEES = [
     {"id": 5, "first_name": "Eva", "last_name": "Davis", "email": "eva@techsolutions.com", "department": "Finance", "position": "Accountant", "hire_date": "2018-09-30"},
 ]
 
+    
 def home(request):
     context = {
         "company_name": "TechSolutions Inc.",
+        "employees": EMPLOYEES,
         "total_employees": len(EMPLOYEES),
         "page_title": "Home",
     }
-    return render(request, "employees/home.html", context)
+    return render(request, "employees/index.html", context)
 
 def employee_list(request):
     context = {
@@ -30,6 +32,7 @@ def employee_detail(request, pk):
     employee = next((e for e in EMPLOYEES if e["id"] == pk), None)
     if not employee:
         return HttpResponse("Employee not found", status=404)
+
     context = {
         "employee": employee,
         "page_title": f"{employee['first_name']} {employee['last_name']}",
