@@ -10,9 +10,11 @@ EMPLOYEES = [
     {"id": 5, "first_name": "Eva", "last_name": "Davis", "email": "eva@techsolutions.com", "department": "Finance", "position": "Accountant", "hire_date": "2018-09-30"},
 ]
 
+    
 def home(request):
     context = {
         "company_name": "TechSolutions Inc.",
+        "employees": EMPLOYEES,
         "total_employees": len(EMPLOYEES),
         "page_title": "Home",
     }
